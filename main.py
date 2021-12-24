@@ -23,11 +23,11 @@ if UA != 'nullvalue':
 
 
 def main():
-    url.SendMessageToAdmin("铛铛铛( \`д´) *%s点* 了" % mytime.GetNowTimeHour())
+    url.SendMessageToAdmin("鐺鐺鐺( \`д´) *%s點* 了" % mytime.GetNowTimeHour())
     if userNums == authKeyNums and userNums == secretKeyNums:
         url.ReadConf()
-        print("待签到: %d 个" % userNums)
-        res = '【登录信息】\n'
+        print("待簽到: %d 個" % userNums)
+        res = '【登入訊息】\n'
         for i in range(userNums):
             instance = user(userIds[i], authKeys[i], secretKeys[i])
             instance.gameData()
@@ -39,7 +39,7 @@ def main():
         url.UploadFileToRepo(mytime.GetNowTimeFileName(), res,
                              mytime.GetNowTimeFileName())
     else:
-        print("账号密码数量不匹配")
+        print("帳號密碼數量不匹配")
 
 
 if __name__ == '__main__':
