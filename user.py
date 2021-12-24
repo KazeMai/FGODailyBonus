@@ -66,26 +66,26 @@ class user:
                 self.ticket = item['num']
                 break
 
-        # 登陆天数
-        res = "[%s]\n`登陆天数: %s天 / %s天\n" % (
+        # 登入天數
+        res = "[%s]\n`登入天數: %s天 / %s天\n" % (
             self.name,
             data['cache']['updated']['userLogin'][0]['seqLoginCount'],
             data['cache']['updated']['userLogin'][0]['totalLoginCount'])
 
-        # 角色信息
-        res += "等级: %s\n石头: %s\n呼符: %s\n" % (self.lv, self.stone, self.ticket)
+        # 角色訊息
+        res += "等級: %s\n石頭: %s\n呼符: %s\n" % (self.lv, self.stone, self.ticket)
 
-        # 现有体力
+        # 現有體力
         #actMax = data['cache']['replaced']['userGame'][0]['actMax']
         #actRecoverAt = data['cache']['replaced']['userGame'][0]['actRecoverAt']
-        #res += "现存体力: %s\n" % (actMax - (actRecoverAt - mytime.GetTimeStamp()) / 300)
+        #res += "現存體力: %s\n" % (actMax - (actRecoverAt - mytime.GetTimeStamp()) / 300)
 
-        # 友情点
-        res += "友情点: %s / %s`\n" % (
+        # 友情點
+        res += "友情點: %s / %s`\n" % (
             data['response'][0]['success']['addFriendPoint'],
             data['cache']['replaced']['tblUserGame'][0]['friendPoint'])
 
-        # 登陆奖励
+        # 登入獎勵
         if 'seqLoginBonus' in data['response'][0]['success']:
             res += '*%s*\n`' % data['response'][0]['success']['seqLoginBonus'][
                 0]['message']
