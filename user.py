@@ -93,12 +93,13 @@ class user:
                     'items']:
                 res += "%s X %s\n" % (i['name'], i['num'])
             if 'campaignbonus' in data['response'][0]['success']:
-                res += '`*%s*\n*%s*\n`' % (
-                    data['response'][0]['success']['campaignbonus'][0]['name'],
-                    data['response'][0]['success']['campaignbonus'][0]
-                    ['detail'])
-                for i in data['response'][0]['success']['campaignbonus'][0][
-                        'items']:
+                for cp in data['response'][0]['success']['campaignbonus']:
+                    res += '`*%s*\n*%s*\n%s\n`' % (
+                        cp['name'],
+                        cp['detail'],
+                        cp['script']['banners'][0]['bannerUrl']
+                    )
+                for i in cp['items']:
                     res += "%s X %s\n" % (i['name'], i['num'])
             res += '`'
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
