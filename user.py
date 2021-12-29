@@ -99,8 +99,8 @@ class user:
                         cp['detail'],
                         cp['script']['banners'][0]['bannerUrl']
                     )
-                for i in cp['items']:
-                    res += "%s X %s\n" % (i['name'], i['num'])
+                    for i in cp['items']:
+                        res += "%s X %s\n" % (i['name'], i['num'])
             res += '`'
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
             data['cache']['serverTime'])
