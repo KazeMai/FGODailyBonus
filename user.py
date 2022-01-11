@@ -81,7 +81,7 @@ class user:
         #res += "現存體力: %s\n" % (actMax - (actRecoverAt - mytime.GetTimeStamp()) / 300)
 
         # 友情點
-        res += "友情點: %s / %s`\n" % (
+        res += "友情點: +%s / %s`\n" % (
             data['response'][0]['success']['addFriendPoint'],
             data['cache']['replaced']['tblUserGame'][0]['friendPoint'])
 
@@ -145,7 +145,7 @@ class user:
         # res = '`友情點數召喚累計%s次\n\n`' % (
             # data["cache"]["updated"]["userGacha"][0]["num"]
         # )
-        return data
+        return json.dumps(data)
 
     def gameData(self):
         par = {
