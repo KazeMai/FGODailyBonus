@@ -121,6 +121,31 @@ class user:
             self.session,
             "%s/home/top?_userId=%s" % (url.gameServerAddr, self.userId), req)
 
+    def friendGacha(self):
+        par = {
+            'userId': self.userId,
+            'authKey': self.authKey,
+            'appVer': url.appVer,
+            'dateVer': url.dateVer,
+            'lastAccessTime': mytime.GetTimeStamp(),
+            'verCode': url.verCode,
+            'dataVer': url.dataVer,
+            'storyAdjustIds': [],
+            'gachaId': 1,
+            'num': 10,
+            'ticketItemId': 0,
+            'shopIdIndex': 1,
+            'gachaSubId': 210
+        }
+        par['authCode'] = self.getAuthCode(par)
+        req = urllib.parse.urlencode(par)
+        data = url.PostReq(
+            self.session,
+            "%s/gacha/draw?_userId=%s" % (url.gameServerAddr, self.userId), req)
+        res += '`友情點數召喚累計%s次\n`' % (
+            data["cache"]["updated"]["userGacha"][0]["num"]
+        )
+
     def gameData(self):
         par = {
             'userId': self.userId,
