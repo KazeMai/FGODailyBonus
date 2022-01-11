@@ -15,7 +15,7 @@ class user:
         self.authKey = authKey
         self.secretKey = secretKey
         self.session = url.NewSession()
-        self.freeDraw = false
+        self.freeDraw = False
 
     def getAuthCode(self, par):
         par = {k: par[k] for k in sorted(par)}
@@ -107,7 +107,7 @@ class user:
         # 間隔12小時才友抽
         for i in data['cache']['replaced']['userGacha']:
             if i['gachaId']==1 and lastAccessTime - i['freeDrawAt'] > 43200 and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000 :
-                self.freeDraw = true
+                self.freeDraw = True
                 break
         svtCount = 0
         ceCount = 0
@@ -120,7 +120,7 @@ class user:
             svtCount,
             ceCount)
         if ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100 or svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100 :
-            self.freeDraw = false
+            self.freeDraw = False
 
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
             data['cache']['serverTime'])
