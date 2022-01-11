@@ -106,20 +106,20 @@ class user:
         
         # 間隔12小時才友抽
         for i in data['cache']['replaced']['userGacha']:
-            if(i['gachaId']==1 && lastAccessTime - i['freeDrawAt'] > 43200 && data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000):
+            if i['gachaId']==1 and lastAccessTime - i['freeDrawAt'] > 43200 and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000 :
                 self.freeDraw = true
                 break
         svtCount = 0
         ceCount = 0
         for svt in data['cache']['replaced']['userSvt']:
-            if(svt['id'].startswith( '93' ) || svt['id'].startswith( '94' ) || svt['id'].startswith( '98' ) ):
+            if svt['id'].startswith( '93' ) or svt['id'].startswith( '94' ) or svt['id'].startswith( '98' ) :
                 ceCount += 1
             else:
                 svtCount += 1
         res += "從者/禮裝數: %s / %s`\n" % (
             svtCount,
             ceCount)
-        if(ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100||svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100):
+        if ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100 or svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100 :
             self.freeDraw = false
 
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
