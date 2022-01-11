@@ -112,11 +112,11 @@ class user:
         svtCount = 0
         ceCount = 0
         for svt in data['cache']['replaced']['userSvt']:
-            if str(svt['id']).startswith( '93' ) or str(svt['id']).startswith( '94' ) or str(svt['id']).startswith( '98' ) :
+            if str(svt['svtId']).startswith( '93' ) or str(svt['svtId']).startswith( '94' ) or str(svt['svtId ']).startswith( '98' ) :
                 ceCount += 1
             else:
                 svtCount += 1
-        res += "從者/禮裝數: %s / %s`\n" % (
+        res += "`從者/禮裝數: %s / %s`\n" % (
             svtCount,
             ceCount)
         if ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100 or svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100 :
