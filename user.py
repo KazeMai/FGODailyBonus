@@ -112,7 +112,7 @@ class user:
         svtCount = 0
         ceCount = 0
         for svt in data['cache']['replaced']['userSvt']:
-            if str(svt['svtId']).startswith( '93' ) or str(svt['svtId']).startswith( '94' ) or str(svt['svtId ']).startswith( '98' ) :
+            if str(svt['svtId']).startswith( '93' ) or str(svt['svtId']).startswith( '94' ) or str(svt['svtId']).startswith( '98' ) :
                 ceCount += 1
             else:
                 svtCount += 1
