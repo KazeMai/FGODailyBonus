@@ -113,7 +113,7 @@ class user:
         ceCount = 0
         for svt in data['cache']['replaced']['userSvt']:
             idStartswith = svt['id'] // 100000# 100100
-            if .idStartswith == 93 or idStartswith == 94 or idStartswith == 98 ) :
+            if idStartswith == 93 or idStartswith == 94 or idStartswith == 98 :
                 ceCount += 1
             else:
                 svtCount += 1
