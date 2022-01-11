@@ -36,7 +36,7 @@ def main():
             time.sleep(2)
             instance.topHome()
             time.sleep(2)
-            instance.friendGacha()
+            res += instance.friendGacha()
         url.SendMessageToAdmin(res)
         url.UploadFileToRepo(mytime.GetNowTimeFileName(), res,
                              mytime.GetNowTimeFileName())

@@ -142,9 +142,10 @@ class user:
         data = url.PostReq(
             self.session,
             "%s/gacha/draw?_userId=%s" % (url.gameServerAddr, self.userId), req)
-        res += '`友情點數召喚累計%s次\n`' % (
+        res = '`友情點數召喚累計%s次\n\n`' % (
             data["cache"]["updated"]["userGacha"][0]["num"]
         )
+        return res
 
     def gameData(self):
         par = {
