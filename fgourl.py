@@ -106,7 +106,7 @@ def SendWebhookToAdmin(message):
             # }
         # ]
 
-        result = requests.post(url, json = data)
+        result = requests.post(WebhookUrl, json = data)
 
         try:
             result.raise_for_status()
