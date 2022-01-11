@@ -15,6 +15,7 @@ class user:
         self.authKey = authKey
         self.secretKey = secretKey
         self.session = url.NewSession()
+        self.freeDraw = false
 
     def getAuthCode(self, par):
         par = {k: par[k] for k in sorted(par)}
@@ -102,6 +103,25 @@ class user:
                     for i in cp['items']:
                         res += "%s X %s\n" % (i['name'], i['num'])
             res += '`'
+        
+        # 間隔12小時才友抽
+        for i in data['cache']['replaced']['userGacha']:
+            if(i['gachaId']==1 && lastAccessTime - i['freeDrawAt'] > 43200 && data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000):
+                self.freeDraw = true
+                break
+        svtCount = 0
+        ceCount = 0
+        for svt in data['cache']['replaced']['userSvt']:
+            if(svt['id'].startswith( '93' ) || svt['id'].startswith( '94' ) || svt['id'].startswith( '98' ) ):
+                ceCount += 1
+            else:
+                svtCount += 1
+        res += "從者/禮裝數: %s / %s`\n" % (
+            svtCount,
+            ceCount)
+        if(ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100||svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100):
+            self.freeDraw = false
+
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
             data['cache']['serverTime'])
 
