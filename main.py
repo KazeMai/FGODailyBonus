@@ -13,6 +13,7 @@ authKeyNums = len(authKeys)
 secretKeyNums = len(secretKeys)
 
 url.verCode = os.environ['verCode']
+url.WebhookUrl = os.environ['WebhookUrl']
 url.TelegramBotToken = os.environ['TGBotToken']
 url.TelegramAdminId = os.environ['TGAdminId']
 url.GithubToken = os.environ['GithubToken']
@@ -32,12 +33,13 @@ def main():
             instance = user(userIds[i], authKeys[i], secretKeys[i])
             instance.gameData()
             time.sleep(5)
-            res += instance.topLogin()
+            res2 = instance.topLogin()
             time.sleep(2)
             instance.topHome()
             time.sleep(2)
-            res += instance.friendGacha()
-        url.SendMessageToAdmin(res)
+            res2 += instance.friendGacha()
+            res += res2
+            url.SendMessageToAdmin(res2)
         url.UploadFileToRepo(mytime.GetNowTimeFileName(), res,
                              mytime.GetNowTimeFileName())
     else:
