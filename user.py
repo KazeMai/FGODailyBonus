@@ -155,16 +155,17 @@ class user:
             'num': 10,
             'ticketItemId': 0,
             'shopIdIndex': 1,
-            'gachaSubId': 210
+            'gachaSubId': 212
         }
         par['authCode'] = self.getAuthCode(par)
         req = urllib.parse.urlencode(par)
         data = url.PostReq(
             self.session,
             "%s/gacha/draw?_userId=%s" % (url.gameServerAddr, self.userId), req)
-        res = '`友情點數召喚累計%s次\n\n`' % (
-            data['cache']['updated']['userGacha'][0]['num']
-        )
+        if data['response'][0]['resCode'] == '00':
+            res = '`友情點數召喚累計%s次\n\n`' % (
+                data['cache']['updated']['userGacha'][0]['num']
+            )
         return res
 
     def gameData(self):
