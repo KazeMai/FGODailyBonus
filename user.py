@@ -155,7 +155,7 @@ class user:
             'num': 10,
             'ticketItemId': 0,
             'shopIdIndex': 1,
-            'gachaSubId': 220
+            'gachaSubId': 222
         }
         par['authCode'] = self.getAuthCode(par)
         req = urllib.parse.urlencode(par)
