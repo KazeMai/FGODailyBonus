@@ -119,7 +119,7 @@ class user:
         res += "`從者/禮裝數: %s / %s`\n" % (
             svtCount,
             ceCount)
-        if ceCount>data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100 or svtCount>data['cache']['replaced']['userGame'][0]['svtKeep']+100 :
+        if ceCount>=data['cache']['replaced']['userGame'][0]['svtEquipKeep']+100 or svtCount>=data['cache']['replaced']['userGame'][0]['svtKeep']+100 :
             self.freeDraw = False
 
         return res + '_%s_\n--------\n' % mytime.TimeStampToString(
