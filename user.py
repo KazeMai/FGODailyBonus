@@ -153,7 +153,7 @@ class user:
                 f"{MstDataUrl}/mstGachaSub.json"
             ).text)
         gachaSubIdNow = 1
-        for gs in mstGachaSub
+        for gs in mstGachaSub :
             if gs[gachaId] == 1 and gs[openedAt] < mytime.GetTimeStamp() and gs[closedAt] > mytime.GetTimeStamp() and gs[commonReleaseId] == 0 :
                 gachaSubIdNow = gs[id]
         par = {
