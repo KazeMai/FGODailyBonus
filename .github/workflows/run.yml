@@ -35,4 +35,4 @@ jobs:
         GithubToken: ${{ secrets.VERY_IMPORTANT_TOKEN }}
         GithubName: ${{ secrets.VERY_IMPORTANT_NAME }}
         WebhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        MstDataUrl = ${{ secrets.GAME_DATA_FOLDER }}
+        MstDataUrl: ${{ secrets.GAME_DATA_FOLDER }}
