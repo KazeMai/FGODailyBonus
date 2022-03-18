@@ -6,6 +6,14 @@ tz_utc_8 = timezone(timedelta(hours=8))
 def GetNowTimeHour():
     return datetime.now(tz=tz_utc_8).hour
 
+def IsDaySame(timestamp):
+    tmptime = datetime.fromtimestamp.replace(tz=tz_utc_9)
+    nowtime = datetime.now(tz=tz_utc_9)
+    if tmptime.day == nowtime.day && tmptime.month == nowtime.month && tmptime.year == nowtime.year :
+        return True
+    else :
+        return False
+
 
 def GetNowTime():
     return datetime.now(tz=tz_utc_8)

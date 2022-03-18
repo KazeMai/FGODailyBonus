@@ -105,8 +105,13 @@ class user:
             res += '`'
         
         # 間隔12小時才友抽
+        # for i in data['cache']['replaced']['userGacha']:
+            # if i['gachaId']==1 and lastAccessTime - i['freeDrawAt'] > 43200 and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000 :
+                # self.freeDraw = True
+                # break
+        # 檢查UTC+9不同天才友抽
         for i in data['cache']['replaced']['userGacha']:
-            if i['gachaId']==1 and lastAccessTime - i['freeDrawAt'] > 43200 and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000 :
+            if i['gachaId'] == 1 and IsDaySame(i['freeDrawAt']) == False and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000:
                 self.freeDraw = True
                 break
         svtCount = 0
@@ -142,6 +147,15 @@ class user:
             "%s/home/top?_userId=%s" % (url.gameServerAddr, self.userId), req)
 
     def friendGacha(self):
+        mstGachaSub = json.loads(
+            requests.get(
+                url=
+                f"{MstDataUrl}/mstGachaSub.json"
+            ).text)
+        gachaSubIdNow = 1
+        for gs in mstGachaSub
+            if gs[gachaId] == 1 and gs[openedAt] < mytime.GetTimeStamp() and gs[closedAt] > mytime.GetTimeStamp() and gs[commonReleaseId] == 0 :
+                gachaSubIdNow = gs[id]
         par = {
             'userId': self.userId,
             'authKey': self.authKey,
@@ -155,7 +169,7 @@ class user:
             'num': 10,
             'ticketItemId': 0,
             'shopIdIndex': 1,
-            'gachaSubId': 228
+            'gachaSubId': gachaSubIdNow
         }
         par['authCode'] = self.getAuthCode(par)
         req = urllib.parse.urlencode(par)
