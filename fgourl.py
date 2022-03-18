@@ -68,7 +68,7 @@ def GetJsonFromUrl(jsonUrl):
             url=
             f"{jsonUrl}"
         ).text)
-     return data
+    return data
 
 
 #===== End =====
