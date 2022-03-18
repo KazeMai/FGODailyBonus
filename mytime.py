@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 tz_utc_8 = timezone(timedelta(hours=8))
-
+tz_utc_9 = timezone(timedelta(hours=9))
 
 def GetNowTimeHour():
     return datetime.now(tz=tz_utc_8).hour
