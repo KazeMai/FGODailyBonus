@@ -62,6 +62,15 @@ def UpdateAppVer(detail):
         raise Exception("update app ver failed")
 
 
+def GetJsonFromUrl(jsonUrl):
+    data = json.loads(
+        requests.get(
+            url=
+            f"{jsonUrl}"
+        ).text)
+     return data
+
+
 #===== End =====
 
 #===== Telegram arguments =====
