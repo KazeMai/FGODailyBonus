@@ -7,7 +7,7 @@ def GetNowTimeHour():
     return datetime.now(tz=tz_utc_8).hour
 
 def IsDaySame(timestamp):
-    tmptime = datetime.fromtimestamp.replace(tz=tz_utc_9)
+    tmptime = datetime.fromtimestamp(timestamp).replace(tz=tz_utc_9)
     nowtime = datetime.now(tz=tz_utc_9)
     if tmptime.day == nowtime.day and tmptime.month == nowtime.month and tmptime.year == nowtime.year :
         return True
