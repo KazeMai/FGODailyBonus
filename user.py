@@ -147,7 +147,7 @@ class user:
             "%s/home/top?_userId=%s" % (url.gameServerAddr, self.userId), req)
 
     def friendGacha(self):
-        mstGachaSub = url.GetJsonFromUrl(os.environ['MstDataUrl']+"mstGachaSub.json")
+        mstGachaSub = url.GetJsonFromUrl(url.MstDataUrl+"mstGachaSub.json")
         gachaSubIdNow = 1
         for gs in mstGachaSub :
             if gs[gachaId] == 1 and gs[openedAt] < mytime.GetTimeStamp() and gs[closedAt] > mytime.GetTimeStamp() and gs[commonReleaseId] == 0 :

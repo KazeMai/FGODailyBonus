@@ -18,6 +18,7 @@ url.TelegramBotToken = os.environ['TGBotToken']
 url.TelegramAdminId = os.environ['TGAdminId']
 url.GithubToken = os.environ['GithubToken']
 url.GithubName = os.environ['GithubName']
+url.MstDataUrl = os.environ['MstDataUrl']
 UA = os.environ['UserAgent']
 if UA != 'nullvalue':
     url.UserAgent = UA
