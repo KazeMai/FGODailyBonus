@@ -111,7 +111,7 @@ class user:
                 # break
         # 檢查UTC+9不同天才友抽
         for i in data['cache']['replaced']['userGacha']:
-            if i['gachaId'] == 1 and IsDaySame(i['freeDrawAt']) == False and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000:
+            if i['gachaId'] == 1 and mytime.IsDaySame(i['freeDrawAt']) == False and data['cache']['replaced']['tblUserGame'][0]['friendPoint'] > 2000:
                 self.freeDraw = True
                 break
         svtCount = 0
