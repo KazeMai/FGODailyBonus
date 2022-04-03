@@ -148,10 +148,11 @@ class user:
 
     def friendGacha(self):
         mstGachaSub = url.GetJsonFromUrl(url.MstDataUrl+"mstGachaSub.json")
-        gachaSubIdNow = 1
+        gachaSubIdNow = 0
         for gs in mstGachaSub :
             if gs['gachaId'] == 1 and gs['openedAt'] < mytime.GetTimeStamp() and gs['closedAt'] > mytime.GetTimeStamp() and gs['commonReleaseId'] == 0 :
                 gachaSubIdNow = gs['id']
+                print("gachaSubId: %d " % gachaSubIdNow)
         par = {
             'userId': self.userId,
             'authKey': self.authKey,
@@ -176,6 +177,8 @@ class user:
             res = '`友情點數召喚累計%s次\n\n`' % (
                 data['cache']['replaced']['userGacha'][0]['num']
             )
+        else :
+            res = '無法進行友情點數召喚'
         return res
 
     def gameData(self):
