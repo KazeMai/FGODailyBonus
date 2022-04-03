@@ -174,7 +174,7 @@ class user:
             "%s/gacha/draw?_userId=%s" % (url.gameServerAddr, self.userId), req)
         if data['response'][0]['resCode'] == '00':
             res = '`友情點數召喚累計%s次\n\n`' % (
-                data['cache']['updated']['userGacha'][0]['num']
+                data['cache']['replaced']['userGacha'][0]['num']
             )
         return res
 
