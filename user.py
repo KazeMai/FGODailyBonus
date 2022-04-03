@@ -116,7 +116,7 @@ class user:
                 break
         svtCount = 0
         ceCount = 0
-        for svt in data['cache']['updated']['userSvt']:
+        for svt in data['cache']['replace']['userSvt']:
             if str(svt['svtId']).startswith( '93' ) or str(svt['svtId']).startswith( '94' ) or str(svt['svtId']).startswith( '98' ) :
                 ceCount += 1
             else:
