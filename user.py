@@ -95,10 +95,11 @@ class user:
                 res += "%s X %s\n" % (i['name'], i['num'])
             if 'campaignbonus' in data['response'][0]['success']:
                 for cp in data['response'][0]['success']['campaignbonus']:
-                    res += '`*%s*\n*%s*\n%s\n`' % (
-                        cp['name'],
-                        cp['detail'],
-                        cp['script']['banners'][0]['bannerUrl']
+                    if 'banners' in cp['script']:
+                        res += '`*%s*\n*%s*\n%s\n`' % (
+                            cp['name'],
+                            cp['detail'],
+                            cp['script']['banners'][0]['bannerUrl']
                     )
                     for i in cp['items']:
                         res += "%s X %s\n" % (i['name'], i['num'])
